@@ -1,0 +1,23 @@
+{
+  "name": "the-new-twitter-api",
+  "version": "1.0.0",
+  "description": "The New and Improved Twitter API for the 21st Century (and beyond)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Social Media",
+    "API",
+    "Users",
+    "Thoughts",
+    "backend",
+    "MongoDB"
+  ],
+  "author": "Nathan Cuevas",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.4.2"
+  }
+}
