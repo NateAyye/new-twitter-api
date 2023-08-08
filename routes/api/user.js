@@ -4,7 +4,7 @@ const router = require('express').Router();
 
 router.route('/').get(async (req, res) => {
   try {
-    const users = await User.find({}).populate('friends');
+    const users = await User.find({}).populate('friends').populate('thoughts');
     return res.json(users);
   } catch (err) {
     return res.status(500).json(err);
@@ -67,7 +67,7 @@ router.route('/:userId/friends/:friendId').post(async (req, res) => {
     if (!friend) {
       return res.status(404).json({ message: 'No user with this id!' });
     }
-    res.json({message: 'Friend Added', friend});
+    res.json({ message: 'Friend Added', friend });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -78,7 +78,7 @@ router.route('/:userId/friends/:friendId').post(async (req, res) => {
     if (!friend) {
       return res.status(404).json({ message: 'No user with this id!' });
     }
-    res.json({message: 'Friend Removed', friend});
+    res.json({ message: 'Friend Removed', friend });
   } catch (err) {
     res.status(500).json(err);
   }

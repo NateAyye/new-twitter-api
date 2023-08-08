@@ -70,5 +70,31 @@ router.route('/:id').get(async (req, res) => {
   }
 })
 
+router.route('/:thoughtId/reactions').post(async (req, res) => {
+  const { thoughtId } = req.params;
+  try {
+    const thought = await Thought.findByIdAndUpdate(thoughtId, { $push: { reactions: req.body } }, { runValidators: true, new: true });
+    if (!thought) {
+      return res.status(404).json({ message: 'No thought with this id!' });
+    }
+    res.json(thought);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+})
+
+router.route('/:thoughtId/reactions/:reactionId').delete(async (req, res) => {
+  const { thoughtId, reactionId } = req.params;
+  try {
+    const deletedThought = await Thought.findByIdAndUpdate(thoughtId, { $pull: { reactions: { reactionId: reactionId } } }, { runValidators: true, new: true });
+    if (!deletedThought) {
+      return res.status(404).json({ message: 'No thought with this id!' });
+    }
+
+    res.json(deletedThought);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+})
 
 module.exports = router;
