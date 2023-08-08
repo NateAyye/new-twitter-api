@@ -1,5 +1,5 @@
 const router = require('express').Router();
-import {
+const {
   addFriend,
   createUser,
   deleteFriend,
@@ -7,7 +7,7 @@ import {
   getAllUsers,
   getUserById,
   updateUserById,
-} from '../../controllers/usersController';
+} = require('../../controllers/usersController');
 
 router.route('/').get(getAllUsers).post(createUser);
 

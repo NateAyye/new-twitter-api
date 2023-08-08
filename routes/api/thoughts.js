@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const Thought = require('../../models/Thought');
 const User = require('../../models/User');
-import {
+const {
   createReaction,
   createThought,
   deleteReaction,
@@ -9,7 +9,7 @@ import {
   getAllThoughts,
   getThoughtById,
   updateThought,
-} from '../../controllers/thoughtsController';
+} = require('../../controllers/thoughtsController');
 
 router.route('/').get(getAllThoughts).post(createThought);
 
