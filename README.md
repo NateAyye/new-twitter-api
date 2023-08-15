@@ -9,6 +9,8 @@
 
 This is A Backend Server for an E-Commerce site. It uses Express.js for the server and MongoDB for the database. It also uses Sequelize as an ORM to interact with the database.
 
+With all the rise in twitter getting bought out and the new changes that are coming to the platform, I decided to make a new twitter API that is more like the old twitter API. This is a work in progress and I will be adding more features to it as I go along.
+
 ## Table of Contents
 
 - [New Twitter API](#new-twitter-api)
