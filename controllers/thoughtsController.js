@@ -92,7 +92,7 @@ async function createReaction(req, res) {
 async function deleteReaction(req, res) {
   const { thoughtId, reactionId } = req.params;
   try {
-    const deletedThought = await Thought.findByIdAndUpdate(thoughtId, { $pull: { reactions: { reactionId: reactionId } } }, { runValidators: true, new: true });
+    const deletedThought = await Thought.findOneAndUpdate({ _id: thoughtId }, { $pull: { reactions: { reactionId: reactionId } } }, { runValidators: true, new: true });
     if (!deletedThought) {
       return res.status(404).json({ message: 'No thought with this id!' });
     }
